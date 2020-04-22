@@ -1,0 +1,32 @@
+.navbar {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+}
+
+.search {
+    text-align: center;
+}
+
+.search input {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 8px;
+    margin-right: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.search button {
+    font-size: 20px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.show {
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+}
