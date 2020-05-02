@@ -1,41 +1,23 @@
 import React, { Component } from "react";
 import "./Form.css";
+import { connect } from "react-redux";
+import * as action from "../redux/ActionCreate";
 
 class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      userInput: "",
-      userId: "",
-      profileUrl: "",
-      fullName: "",
-      emailId: null,
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
 
   handleUserInput = (event) => {
-    this.setState({
-      userInput: event.target.value,
-    });
+    this.props.getUser(event);
   };
 
-  async handleSubmit(event) {
-    //console.log(this.state.userInput);
+  handleSubmit(event) {
     event.preventDefault();
-    let response = await fetch(
-      `https://api.github.com/users/${this.state.userInput}`
-    );
-    let data = await response.json();
-    this.setState({
-      userId: data.login,
-      profileUrl: data.avatar_url,
-      fullName: data.name,
-      emailId: data.email,
-    });
-    //console.log(data);
+    this.props.getData(this.props.userInput);
   }
 
   render() {
@@ -46,21 +28,37 @@ class Form extends Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
-              placeholder="User ID"
+              placeholder="User Name"
               onChange={this.handleUserInput}
             />
             <button type="submit">Fetch Details</button>
           </form>
         </div>
         <div className="show">
-          <img src={this.state.profileUrl} />
-          <div>User Name: {this.state.userId}</div>
-          <div>Full Name: {this.state.fullName}</div>
-          <div>Email Id: {this.state.emailId}</div>
+          <img alt={this.props.fullName} src={this.props.profileUrl} />
+          <div>User Name: {this.props.userId}</div>
+          <div>Full Name: {this.props.fullName}</div>
+          <div>Email Id: {this.props.emailId}</div>
         </div>
       </div>
     );
   }
 }
 
-export default Form;
+const mapStateToProps = (state) => {
+  return {
+    userInput: state.userInput,
+    userId: state.userId,
+    profileUrl: state.profileUrl,
+    emailId: state.emailId,
+    fullName: state.fullName,
+  };
+};
+
+const mapStateToDispatch = (dispatch) => {
+  return {
+    getUser: (event) => dispatch(action.getUser(event.target.value)),
+    getData: (name) => dispatch(action.getData(name)),
+  };
+};
+export default connect(mapStateToProps, mapStateToDispatch)(Form);
