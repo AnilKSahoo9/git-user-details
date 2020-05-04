@@ -10,12 +10,16 @@ export const getUser = (name) => {
   };
 };
 
+const getDetails = (data) => {
+  return {
+    type: RECEIVE_USER_DETAILS,
+    data: data,
+  };
+};
+
 export const getData = (userInput) => {
   return async (dispatch) => {
     const res = await axios.get(`https://api.github.com/users/${userInput}`);
-    dispatch({
-      type: RECEIVE_USER_DETAILS,
-      data: res.data,
-    });
+    dispatch(getDetails(res.data));
   };
 };
