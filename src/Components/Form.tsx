@@ -1,23 +1,32 @@
-import React, { Component } from "react";
+import * as React from "react";
 import "./Form.css";
 import { connect } from "react-redux";
 import * as action from "../redux/ActionCreate";
+import { InitialState } from "../redux/Reducers";
+import { appState } from "../redux/Store";
 
-class Form extends Component {
-  constructor(props) {
+interface dispatchProps {
+  getUser: (event: any) => any;
+  getData: (userInput: string, event: any) => any;
+}
+
+type Props = InitialState & dispatchProps;
+
+class Form extends React.Component<Props> {
+  constructor(props: Props) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
 
-  handleUserInput = (event) => {
+  handleUserInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.props.getUser(event);
   };
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.getData(this.props.userInput);
+  handleSubmit(event: any) {
+    console.log("button clicked");
+    this.props.getData(this.props.userInput, event);
   }
 
   render() {
@@ -45,7 +54,7 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: appState) => {
   return {
     userInput: state.userInput,
     userId: state.userId,
@@ -55,10 +64,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapStateToDispatch = (dispatch) => {
-  return {
-    getUser: (event) => dispatch(action.getUser(event.target.value)),
-    getData: (name) => dispatch(action.getData(name)),
-  };
+const mapDispatchToProps = {
+  getUser: action.getUser,
+  getData: action.getData,
 };
-export default connect(mapStateToProps, mapStateToDispatch)(Form);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
