@@ -1,145 +1,126 @@
 .main-container {
-    font-family: Cambria,
-        Cochin,
-        Georgia,
-        Times,
-        'Times New Roman',
-        serif;
-    font-weight: 600;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 600;
 }
 
 .navbar {
-    padding: 20px;
-    padding-top: 10px;
-    text-align: center;
-    color: black;
-    font-size: 40px;
-    background-color: blanchedalmond;
+  padding: 20px;
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  font-size: 40px;
+  background-color: blanchedalmond;
 }
 
 .search {
-    text-align: center;
-    background-color: beige;
-    margin-top: 10px;
-
+  text-align: center;
+  background-color: beige;
+  margin-top: 10px;
 }
 
 .search input {
-    font-family: Cambria,
-        Cochin,
-        Georgia,
-        Times,
-        'Times New Roman',
-        serif;
-    font-size: 20px;
-    text-align: center;
-    margin-right: 50px;
-    border: 2px solid black;
-    border-radius: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .search button {
-    font-family: Cambria,
-        Cochin,
-        Georgia,
-        Times,
-        'Times New Roman',
-        serif;
-    font-size: 20px;
-    background: white;
-    border: 2px solid black;
-    border-radius: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .user-details {
-    margin-top: 10px;
-    text-align: center;
-    padding-left: 490px;
-    margin-bottom: 10px;
-    display: flex;
-    background-color: bisque;
+  margin-top: 10px;
+  text-align: center;
+  padding-left: 490px;
+  margin-bottom: 10px;
+  display: flex;
+  background-color: bisque;
 }
 
 .details {
-    margin-left: 100px;
-    margin-top: auto;
-    margin-bottom: auto;
-    line-height: 35px;
-    font-size: 20px;
-    font-variant: initial;
-    font-weight: 100;
-    text-align: left;
-
+  margin-left: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 35px;
+  font-size: 20px;
+  font-variant: initial;
+  font-weight: 100;
+  text-align: left;
 }
 
 .all-chart {
-    background-color: blanchedalmond;
-    text-align: center;
-    font-size: 20px;
-    padding-top: 20px;
-    margin-top: 10px;
-
+  background-color: blanchedalmond;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+  margin-top: 10px;
 }
 
 .chart {
-    display: flex;
-    padding-top: 20px;
-    height: 250px;
+  display: flex;
+  padding-top: 20px;
+  height: 250px;
 }
 
 .chart1 {
-    width: 700px;
-    height: 350px;
+  width: 700px;
+  height: 350px;
 }
 
 .chart2 {
-    width: 700px;
-    height: 350px;
+  width: 700px;
+  height: 350px;
 }
 
 .chart3 {
-    width: 700px;
-    height: 350px;
+  width: 700px;
+  height: 350px;
 }
 
 .chart4 {
-    width: 700px;
-    height: 350px;
+  width: 700px;
+  height: 350px;
 }
 
 .repo-content {
-    background-color: blanchedalmond;
-    text-align: center;
-    padding-top: 10px;
-    font-size: 20px;
-    margin-top: 10px;
-    /* margin-bottom: 20px; */
+  background-color: blanchedalmond;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+  /* margin-bottom: 20px; */
 }
 
 .repo-details {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top: 10px;
-    padding-left: 230px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 30px;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+  padding-left: 230px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  text-align: center;
 }
-
 
 /* .content {
     text-align: center;
 } */
 
 .repo {
-    background-color: burlywood;
-    box-sizing: border-box;
-    width: 350px;
-    /* height: 300px; */
-    padding: 30px 50px;
-    padding-bottom: 4px;
-    border-radius: 8px;
-    box-shadow: 3px 3px 25px 0 rgba(46, 61, 73, .14);
+  background-color: burlywood;
+  box-sizing: border-box;
+  width: 350px;
+  /* height: 300px; */
+  padding: 30px 50px;
+  padding-bottom: 4px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 25px 0 rgba(46, 61, 73, 0.14);
 }
