@@ -9,6 +9,7 @@ import {
 
 export interface InitialState {
   userInput: string;
+  isFetching: boolean;
   userId: string;
   profileUrl: string;
   emailId: string;
@@ -27,6 +28,7 @@ export interface InitialState {
 
 export const initialState: InitialState = {
   userInput: "",
+  isFetching: false,
   userId: "",
   profileUrl: "",
   emailId: "",
@@ -66,6 +68,7 @@ const reducer = (state = initialState, action: actionType): InitialState => {
         website: action.data.blog,
         company: action.data.company,
         githubUrl: action.data.html_url,
+        isFetching: true,
       };
     case RECEIVE_REPO_DETAILS:
       //console.log(action.data);

@@ -140,135 +140,120 @@ class Form extends React.Component<Props> {
             <button type="submit">Fetch Details</button>
           </form>
         </div>
-        <div className="result-container">
-          <div className="user-details">
-            <img
-              className="user-photo"
-              alt={this.props.fullName}
-              src={this.props.profileUrl}
-            />
-            <div className="details">
-              <div>User Name: {this.props.userId}</div>
-              <div>Full Name: {this.props.fullName}</div>
-              {/* <div>Email Id: {this.props.emailId}</div> */}
-              <div>Bio: {this.props.bio}</div>
-              <div>Location: {this.props.location}</div>
-              <div>Website: {this.props.website}</div>
-              <div>Company: {this.props.company}</div>
-              <div>Total no. of commits: {this.props.totalCommit}</div>
-              <div>
-                Link to <a href={this.props.githubUrl}>GitHub Profile</a>
+        {this.props.isFetching ? (
+          <div className="result-container">
+            <div className="user-details">
+              <img
+                className="user-photo"
+                alt={this.props.fullName}
+                src={this.props.profileUrl}
+              />
+              <div className="details">
+                <div>User Name: {this.props.userId}</div>
+                <div>Full Name: {this.props.fullName}</div>
+                {/* <div>Email Id: {this.props.emailId}</div> */}
+                <div>Bio: {this.props.bio}</div>
+                <div>Location: {this.props.location}</div>
+                <div>Website: {this.props.website}</div>
+                <div>Company: {this.props.company}</div>
+                <div>Total no. of commits: {this.props.totalCommit}</div>
+                <div>
+                  Link to <a href={this.props.githubUrl}>GitHub Profile</a>
+                </div>
               </div>
             </div>
-            {/* <div>Followers: {this.props.followers}</div>
-            <div>Following: {this.props.following}</div> */}
-            {/* <UserDetails username={this.props.userId} /> */}
-            {/* <div>Total no. of Repository: {this.props.repos.length}</div> */}
-            {/* <div>
-              Contributions:
-            {this.props.contributions.map((item: any) => (
-              <h6>{item.total}</h6>
-            ))}
-            </div> */}
-          </div>
-          {/* <div className="showChart">
-            Enter which chart type u want to see?
-            <input type="radio" name="chart" value="doughnut" checked />
-            Doughnut
-            <input type="radio" name="chart" value="bar" />
-            Bar
-            <input type="radio" name="chart" value="scatter" />
-            Scatter
-          </div> */}
-          <div className="all-chart">
-            <div>~ : Data Visualization : ~</div>
-            <div className="chart">
-              <div className="chart1">
-                <Doughnut
-                  data={state1}
-                  options={{
-                    title: {
-                      display: true,
-                      text: "Followers vs Following",
-                      fontSize: 20,
-                    },
-                    legend: {
-                      display: true,
-                      position: "right",
-                    },
-                  }}
-                />
-              </div>
-              <div className="chart2">
-                <Doughnut
-                  data={state2}
-                  options={{
-                    title: {
-                      display: true,
-                      text: "Total Repo ~ Total Stars ~ Total Forks",
-                      fontSize: 20,
-                    },
-                    legend: {
-                      display: true,
-                      position: "right",
-                    },
-                  }}
-                />
-              </div>
-              <div className="chart3">
-                <Doughnut
-                  data={state3}
-                  options={{
-                    title: {
-                      display: true,
-                      text: "No. of Contributions per year",
-                      fontSize: 20,
-                    },
-                    legend: {
-                      display: true,
-                      position: "right",
-                    },
-                  }}
-                />
-              </div>
-              <div className="chart4">
-                <Doughnut
-                  data={state4}
-                  options={{
-                    title: {
-                      display: true,
-                      text: "No. of Languages used per repository",
-                      fontSize: 20,
-                    },
-                    legend: {
-                      display: true,
-                      position: "right",
-                    },
-                  }}
-                />
+            <div className="all-chart">
+              <div>~ : Data Visualization : ~</div>
+              <div className="chart">
+                <div className="chart1">
+                  <Doughnut
+                    data={state1}
+                    options={{
+                      title: {
+                        display: true,
+                        text: "Followers vs Following",
+                        fontSize: 20,
+                      },
+                      legend: {
+                        display: true,
+                        position: "right",
+                      },
+                    }}
+                  />
+                </div>
+                <div className="chart2">
+                  <Doughnut
+                    data={state2}
+                    options={{
+                      title: {
+                        display: true,
+                        text: "Total Repo ~ Total Stars ~ Total Forks",
+                        fontSize: 20,
+                      },
+                      legend: {
+                        display: true,
+                        position: "right",
+                      },
+                    }}
+                  />
+                </div>
+                <div className="chart3">
+                  <Doughnut
+                    data={state3}
+                    options={{
+                      title: {
+                        display: true,
+                        text: "No. of Contributions per year",
+                        fontSize: 20,
+                      },
+                      legend: {
+                        display: true,
+                        position: "right",
+                      },
+                    }}
+                  />
+                </div>
+                <div className="chart4">
+                  <Doughnut
+                    data={state4}
+                    options={{
+                      title: {
+                        display: true,
+                        text: "No. of Languages used per repository",
+                        fontSize: 20,
+                      },
+                      legend: {
+                        display: true,
+                        position: "right",
+                      },
+                    }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="repo-content">
-            <div>~ : Repository Details : ~</div>
-            <div className="repo-details">
-              {this.props.repos.map((repo: any, index: any) => {
-                return (
-                  <div className="repo">
-                    <li key={index}>
-                      <a href={repo.html_url}>{repo.name}</a>
-                      <h3>{repo.description}</h3>
-                      <h3>Forks: {repo.forks_count}</h3>
-                      <h3>Stars: {repo.stargazers_count}</h3>
-                      <h3>Open Issues: {repo.open_issues}</h3>
-                    </li>
-                  </div>
-                );
-              })}
+            <div className="repo-content">
+              <div>~ : Repository Details : ~</div>
+              <div className="repo-details">
+                {this.props.repos.map((repo: any, index: any) => {
+                  return (
+                    <div className="repo">
+                      <li key={index}>
+                        <a href={repo.html_url}>{repo.name}</a>
+                        <h3>{repo.description}</h3>
+                        <h3>Forks: {repo.forks_count}</h3>
+                        <h3>Stars: {repo.stargazers_count}</h3>
+                        <h3>Open Issues: {repo.open_issues}</h3>
+                      </li>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
@@ -277,6 +262,7 @@ class Form extends React.Component<Props> {
 const mapStateToProps = (state: appState) => {
   return {
     userInput: state.userInput,
+    isFetching: state.isFetching,
     userId: state.userId,
     profileUrl: state.profileUrl,
     emailId: state.emailId,
